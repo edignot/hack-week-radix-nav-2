@@ -1,5 +1,5 @@
 import * as NavigationMenuPrimitive from '@radix-ui/react-navigation-menu'
-import { CaretDownIcon } from '@radix-ui/react-icons'
+import { CaretDownIcon, ArrowRightIcon } from '@radix-ui/react-icons'
 import { styled, keyframes } from '@stitches/react'
 import { violet } from '@radix-ui/colors'
 
@@ -17,7 +17,7 @@ const NavigationMenuList = styled(NavigationMenuPrimitive.List, {
   justifyContent: 'center',
   listStyle: 'none',
   margin: 0,
-  padding: 15,
+  padding: 10,
   width: '100%',
   backgroundColor: violet.violet1,
 })
@@ -58,13 +58,50 @@ const NavigationMenuContent = styled(NavigationMenuPrimitive.Content, {
 })
 
 const ContentList = styled('ul', {
-  border: '2px solid yellow',
   display: 'flex',
   flexDirection: 'column',
   padding: 0,
+  variants: {
+    type: {
+      contentDescription: {
+        alignItems: 'flex-start',
+        gap: 25,
+      },
+      popularContent: {
+        border: '2px solid orange',
+      },
+      otherContent: {
+        border: '2px solid yellow',
+      },
+    },
+  },
 })
 
-const NavigationMenuLink = styled(NavigationMenuPrimitive.Link, {})
+const Text = styled('p', {
+  padding: 0,
+  margin: 0,
+  color: violet.violet12,
+  variants: {
+    type: {
+      navItemHeader: {
+        fontSize: '2rem',
+        fontWeight: 500,
+      },
+      navItemDescription: {
+        display: 'flex',
+        flexDirection: 'column',
+      },
+      navItemLink: {
+        fontSize: '2rem',
+      },
+    },
+  },
+})
+
+const NavigationMenuLink = styled(NavigationMenuPrimitive.Link, {
+  display: 'flex',
+  alignItems: 'center',
+})
 
 const NavigationMenuViewport = styled(NavigationMenuPrimitive.Viewport, {
   backgroundColor: violet.violet1,
@@ -83,17 +120,22 @@ const Navigation = () => {
             <StyledCaretDownIcon />
           </NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ContentList>
+            <ContentList type="contentDescription">
+              <Text type="navItemHeader">Articles</Text>
+              <Text type="navItemDescription">
+                Here you can find <span>all articles</span>
+              </Text>
+              <NavigationMenuLink href="#">
+                View All
+                <ArrowRightIcon />
+              </NavigationMenuLink>
+            </ContentList>
+            <ContentList type="popularContent">
               <NavigationMenuLink href="#">Product 1</NavigationMenuLink>
               <NavigationMenuLink href="#">Product 1</NavigationMenuLink>
               <NavigationMenuLink href="#">Product 1</NavigationMenuLink>
             </ContentList>
-            <ContentList>
-              <NavigationMenuLink href="#">Product 1</NavigationMenuLink>
-              <NavigationMenuLink href="#">Product 1</NavigationMenuLink>
-              <NavigationMenuLink href="#">Product 1</NavigationMenuLink>
-            </ContentList>
-            <ContentList>
+            <ContentList type="otherContent">
               <NavigationMenuLink href="#">Product 1</NavigationMenuLink>
               <NavigationMenuLink href="#">Product 1</NavigationMenuLink>
               <NavigationMenuLink href="#">Product 1</NavigationMenuLink>
