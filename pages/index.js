@@ -45,6 +45,24 @@ const StyledCaretDownIcon = styled(CaretDownIcon, {
   },
 })
 
+const StyledArrowRightIcon = styled(ArrowRightIcon, {
+  width: 25,
+  height: 25,
+  padding: 4,
+  variants: {
+    type: {
+      withBackground: {
+        borderRadius: 50,
+        backgroundColor: violet.violet9,
+        color: violet.violet1,
+      },
+      withoutBackground: {
+        color: violet.violet12,
+      },
+    },
+  },
+})
+
 // MAIN NAV DROPDOWN GRID/FLEX CONTAINER
 const NavigationMenuContent = styled(NavigationMenuPrimitive.Content, {
   borderTop: `1px solid ${violet.violet5}`,
@@ -59,16 +77,21 @@ const NavigationMenuContent = styled(NavigationMenuPrimitive.Content, {
 
 const ContentList = styled('ul', {
   display: 'flex',
-  flexDirection: 'column',
   padding: 0,
   variants: {
     type: {
       contentDescription: {
+        flexDirection: 'column',
         alignItems: 'flex-start',
         gap: 25,
       },
       popularContent: {
-        border: '2px solid orange',
+        display: 'grid',
+        gap: 25,
+        gridTemplateColumns: 'repeat(2, 1fr)',
+        '@media (min-width: 768px)': {
+          gridTemplateColumns: 'repeat(3, 1fr)',
+        },
       },
       otherContent: {
         border: '2px solid yellow',
@@ -98,8 +121,27 @@ const Text = styled('p', {
   },
 })
 
+const ContentItemCard = styled('div', {
+  border: `1px solid ${violet.violet5}`,
+  width: 150,
+  height: 150,
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+})
+
+const ContentItemImage = styled('div', {
+  width: '100%',
+  height: '70%',
+  backgroundImage:
+    'linear-gradient(330deg, hsl(272,53%,20%) 0%, hsl(226,68%,56%) 100%)',
+  borderRadius: 10,
+})
+
 const NavigationMenuLink = styled(NavigationMenuPrimitive.Link, {
   display: 'flex',
+  gap: 10,
   alignItems: 'center',
 })
 
@@ -108,6 +150,7 @@ const NavigationMenuViewport = styled(NavigationMenuPrimitive.Viewport, {
   boxShadow: `0 0 0 2px ${violet.violet5}`,
   borderBottomLeftRadius: 25,
   borderBottomRightRadius: 25,
+  // Add background image
 })
 
 const Navigation = () => {
@@ -119,6 +162,7 @@ const Navigation = () => {
             Articles
             <StyledCaretDownIcon />
           </NavigationMenuTrigger>
+
           <NavigationMenuContent>
             <ContentList type="contentDescription">
               <Text type="navItemHeader">Articles</Text>
@@ -127,14 +171,48 @@ const Navigation = () => {
               </Text>
               <NavigationMenuLink href="#">
                 View All
-                <ArrowRightIcon />
+                <StyledArrowRightIcon type="withoutBackground" />
               </NavigationMenuLink>
             </ContentList>
+
             <ContentList type="popularContent">
-              <NavigationMenuLink href="#">Product 1</NavigationMenuLink>
-              <NavigationMenuLink href="#">Product 1</NavigationMenuLink>
-              <NavigationMenuLink href="#">Product 1</NavigationMenuLink>
+              <ContentItemCard>
+                <ContentItemImage />
+                <NavigationMenuLink href="#">
+                  This is an Article
+                  <StyledArrowRightIcon type="withBackground" />
+                </NavigationMenuLink>
+              </ContentItemCard>
+              <ContentItemCard>
+                <ContentItemImage />
+                <NavigationMenuLink href="#">
+                  Another Article
+                  <StyledArrowRightIcon type="withBackground" />
+                </NavigationMenuLink>
+              </ContentItemCard>
+              <ContentItemCard>
+                <ContentItemImage />
+                <NavigationMenuLink href="#">
+                  One More Article
+                  <StyledArrowRightIcon type="withBackground" />
+                </NavigationMenuLink>
+              </ContentItemCard>
+              <ContentItemCard>
+                <ContentItemImage />
+                <NavigationMenuLink href="#">
+                  How to Write an Article
+                  <StyledArrowRightIcon type="withBackground" />
+                </NavigationMenuLink>
+              </ContentItemCard>
+              <ContentItemCard>
+                <ContentItemImage />
+                <NavigationMenuLink href="#">
+                  The Final One
+                  <StyledArrowRightIcon type="withBackground" />
+                </NavigationMenuLink>
+              </ContentItemCard>
             </ContentList>
+
             <ContentList type="otherContent">
               <NavigationMenuLink href="#">Product 1</NavigationMenuLink>
               <NavigationMenuLink href="#">Product 1</NavigationMenuLink>
