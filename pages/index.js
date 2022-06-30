@@ -151,6 +151,7 @@ const ContentItemCard = styled('div', {
   flexDirection: 'column',
   alignItems: 'center',
   gap: 10,
+  position: 'relative',
 })
 
 const ContentItemImage = styled('div', {
@@ -175,6 +176,10 @@ const ContentItemImage = styled('div', {
       },
     },
   },
+
+  '&:hover': {
+    transform: 'translateX(3px) translateY(-3px)',
+  },
 })
 
 const NavigationLinkTextIconWrapper = styled('div', {
@@ -189,6 +194,11 @@ const NavigationMenuViewport = styled(NavigationMenuPrimitive.Viewport, {
   boxShadow: `0 0 0 2px ${violet.violet5}`,
   borderBottomLeftRadius: 25,
   borderBottomRightRadius: 25,
+})
+
+const scaleUp = keyframes({
+  '0%': { transform: 'scale(1)' },
+  '100%': { transform: 'scale(1.5)' },
 })
 
 const Navigation = () => {
@@ -216,7 +226,13 @@ const Navigation = () => {
               <ContentItemCardWrapper>
                 <NavigationMenuLink href="#">
                   <ContentItemCard>
-                    <ContentItemImage color="blue" />
+                    <ContentItemImage color="purple" />
+                    <ContentItemImage
+                      color="blue"
+                      style={{
+                        position: 'absolute',
+                      }}
+                    />
                     <NavigationLinkTextIconWrapper>
                       <Text type="navItemLink">This is an article</Text>
                       <StyledArrowRightIcon backgroundColor="blue" />
@@ -560,3 +576,4 @@ export default Navigation
 
 // fix icon size
 // add background image for viewport or gradient
+// replace caret icon with underline
