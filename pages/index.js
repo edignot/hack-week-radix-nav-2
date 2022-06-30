@@ -185,7 +185,14 @@ const Card = ({ children }) => {
           }}
         />
       </CardImage>
-      <div style={{ display: 'flex', gap: 10, marginTop: 20 }}>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          gap: 10,
+          marginTop: 20,
+        }}
+      >
         <Title size="small" as="h4">
           {children}
         </Title>
@@ -232,7 +239,7 @@ const colorMap = {
     primary: purple.purple11,
     secondary: indigo.indigo11,
   },
-  other: {
+  tutorials: {
     primary: cyan.cyan11,
     secondary: indigo.indigo11,
   },
@@ -278,11 +285,11 @@ const Navigation = () => {
               Top Articles
             </Title>
             <CardContainer>
-              <Card>This is an article</Card>
-              <Card>This is an article</Card>
-              <Card>This is an article</Card>
-              <Card>This is an article</Card>
-              <Card>This is an article</Card>
+              <Card>What is an article</Card>
+              <Card>How to write a good article</Card>
+              <Card>Article 101</Card>
+              <Card>How to read an article</Card>
+              <Card>Interesting article</Card>
             </CardContainer>
           </NavContentSection>
 
@@ -290,11 +297,11 @@ const Navigation = () => {
             <Title size="medium" as="h3">
               Trending
             </Title>
-            <NavLink href="#">This one is trending</NavLink>
-            <NavLink href="#">This one is trending</NavLink>
-            <NavLink href="#">This one is trending</NavLink>
-            <NavLink href="#">This one is trending</NavLink>
-            <NavLink href="#">This one is trending</NavLink>
+            <NavLink href="#">Interesting article</NavLink>
+            <NavLink href="#">How to read an article</NavLink>
+            <NavLink href="#">Article 101</NavLink>
+            <NavLink href="#">How to write a good article</NavLink>
+            <NavLink href="#">What is an article</NavLink>
           </NavContentSection>
         </NavItemContainer>
 
@@ -317,11 +324,11 @@ const Navigation = () => {
               Top Resources
             </Title>
             <CardContainer>
-              <Card>This is an article</Card>
-              <Card>This is an article</Card>
-              <Card>This is an article</Card>
-              <Card>This is an article</Card>
-              <Card>This is an article</Card>
+              <Card>The best resource</Card>
+              <Card>List of great resources</Card>
+              <Card>Check out this resource</Card>
+              <Card>Resource 101</Card>
+              <Card>Another resource</Card>
             </CardContainer>
           </NavContentSection>
 
@@ -329,11 +336,11 @@ const Navigation = () => {
             <Title size="medium" as="h3">
               Trending
             </Title>
-            <NavLink href="#">This one is trending</NavLink>
-            <NavLink href="#">This one is trending</NavLink>
-            <NavLink href="#">This one is trending</NavLink>
-            <NavLink href="#">This one is trending</NavLink>
-            <NavLink href="#">This one is trending</NavLink>
+            <NavLink href="#">Another resource</NavLink>
+            <NavLink href="#">Resource 101</NavLink>
+            <NavLink href="#">Check out this resource</NavLink>
+            <NavLink href="#">List of great resources</NavLink>
+            <NavLink href="#">The best resource</NavLink>
           </NavContentSection>
         </NavItemContainer>
 
@@ -353,14 +360,14 @@ const Navigation = () => {
 
           <NavContentSection>
             <Title size="medium" as="h3">
-              Our Best Products
+              Top Products
             </Title>
             <CardContainer>
-              <Card>This is an article</Card>
-              <Card>This is an article</Card>
-              <Card>This is an article</Card>
-              <Card>This is an article</Card>
-              <Card>This is an article</Card>
+              <Card>Our top product</Card>
+              <Card>How to create a product</Card>
+              <Card>Creating product 101</Card>
+              <Card>The best product</Card>
+              <Card>Check out this product</Card>
             </CardContainer>
           </NavContentSection>
 
@@ -368,21 +375,21 @@ const Navigation = () => {
             <Title size="medium" as="h3">
               Trending
             </Title>
-            <NavLink href="#">This one is trending</NavLink>
-            <NavLink href="#">This one is trending</NavLink>
-            <NavLink href="#">This one is trending</NavLink>
-            <NavLink href="#">This one is trending</NavLink>
-            <NavLink href="#">This one is trending</NavLink>
+            <NavLink href="#">Check out this product</NavLink>
+            <NavLink href="#">The best product</NavLink>
+            <NavLink href="#">Creating product 101</NavLink>
+            <NavLink href="#">How to create a product</NavLink>
+            <NavLink href="#">Our top product</NavLink>
           </NavContentSection>
         </NavItemContainer>
 
-        <NavItemContainer value="other" title="Other">
+        <NavItemContainer value="tutorials" title="Tutorials">
           <NavContentSection>
             <Title size="large" as="h2">
-              Other
+              Tutorials
             </Title>
             <Text>
-              Here you can find <span>everything else</span>
+              Here you can find <span>all tutorials</span>
             </Text>
             <NavLink href="#">
               View All
@@ -392,14 +399,14 @@ const Navigation = () => {
 
           <NavContentSection>
             <Title size="medium" as="h3">
-              Top Articles
+              Top Tutorials
             </Title>
             <CardContainer>
-              <Card>This is an article</Card>
-              <Card>This is an article</Card>
-              <Card>This is an article</Card>
-              <Card>This is an article</Card>
-              <Card>This is an article</Card>
+              <Card>How to write a good story</Card>
+              <Card>How to create a tutorial</Card>
+              <Card>Learn how to write stories</Card>
+              <Card>How to create a product</Card>
+              <Card>Building a website 101</Card>
             </CardContainer>
           </NavContentSection>
 
@@ -407,11 +414,11 @@ const Navigation = () => {
             <Title size="medium" as="h3">
               Trending
             </Title>
-            <NavLink href="#">This one is trending</NavLink>
-            <NavLink href="#">This one is trending</NavLink>
-            <NavLink href="#">This one is trending</NavLink>
-            <NavLink href="#">This one is trending</NavLink>
-            <NavLink href="#">This one is trending</NavLink>
+            <NavLink href="#">Building a website 101</NavLink>
+            <NavLink href="#">How to create a product</NavLink>
+            <NavLink href="#">Learn how to write stories</NavLink>
+            <NavLink href="#">How to create a tutorial</NavLink>
+            <NavLink href="#">How to write a good story</NavLink>
           </NavContentSection>
         </NavItemContainer>
       </NavList>
