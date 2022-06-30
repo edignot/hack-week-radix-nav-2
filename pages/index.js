@@ -1,17 +1,17 @@
 import React from 'react'
-import * as NavigationMenuPrimitive from '@radix-ui/react-navigation-menu'
+import * as NavigationMenu from '@radix-ui/react-navigation-menu'
 import { CaretDownIcon, ArrowRightIcon } from '@radix-ui/react-icons'
 import { styled } from '@stitches/react'
 import { violet, red, plum, pink } from '@radix-ui/colors'
 
-const NavigationMenuRoot = styled(NavigationMenuPrimitive.Root, {
+const NavMenuRoot = styled(NavigationMenu.Root, {
   display: 'flex',
   flexDirection: 'column',
   width: '100vw',
   justifyContent: 'center',
   position: 'fixed',
 })
-const NavigationMenuList = styled(NavigationMenuPrimitive.List, {
+const NavMenuList = styled(NavigationMenu.List, {
   display: 'flex',
   justifyContent: 'center',
   listStyle: 'none',
@@ -19,8 +19,8 @@ const NavigationMenuList = styled(NavigationMenuPrimitive.List, {
   width: '100%',
   backgroundColor: violet.violet1,
 })
-const NavigationMenuItem = styled(NavigationMenuPrimitive.Item, {})
-const NavigationMenuTrigger = styled(NavigationMenuPrimitive.Trigger, {
+const NavMenuItem = styled(NavigationMenu.Item, {})
+const NavMenuTrigger = styled(NavigationMenu.Trigger, {
   position: 'relative',
   padding: 30,
   display: 'flex',
@@ -60,7 +60,7 @@ const StyledArrowRightIcon = styled(ArrowRightIcon, {
   color: violet.violet1,
   backgroundColor: 'var(--navigation-color-primary)',
 })
-const NavigationMenuContent = styled(NavigationMenuPrimitive.Content, {
+const NavMenuContent = styled(NavigationMenu.Content, {
   borderTop: `1px solid ${violet.violet5}`,
   width: '100%',
   gap: 100,
@@ -79,7 +79,7 @@ const ContentList = styled('ul', {
   alignItems: 'flex-start',
   gap: 25,
 })
-const UnderlineLink = styled(NavigationMenuPrimitive.Link, {
+const UnderlineLink = styled(NavigationMenu.Link, {
   fontSize: '1rem',
   fontWeight: 500,
   borderBottom: `2px solid ${violet.violet7}`,
@@ -110,7 +110,7 @@ const Text = styled('p', {
   display: 'flex',
   flexDirection: 'column',
 })
-const NavigationMenuLink = styled(NavigationMenuPrimitive.Link, {
+const NavMenuLink = styled(NavigationMenu.Link, {
   display: 'flex',
   alignItems: 'center',
 })
@@ -122,7 +122,7 @@ const ContentItemCardWrapper = styled('div', {
     gridTemplateColumns: 'repeat(3, 1fr)',
   },
 })
-const NavigationMenuViewport = styled(NavigationMenuPrimitive.Viewport, {
+const NavMenuViewport = styled(NavigationMenu.Viewport, {
   backgroundColor: violet.violet1,
   boxShadow: `0 0 0 2px ${violet.violet5}`,
   borderBottomLeftRadius: 25,
@@ -130,21 +130,21 @@ const NavigationMenuViewport = styled(NavigationMenuPrimitive.Viewport, {
 })
 const MenuItem = ({ value, title, children }) => {
   return (
-    <NavigationMenuItem value={value}>
-      <NavigationMenuTrigger
+    <NavMenuItem value={value}>
+      <NavMenuTrigger
         onPointerMove={(event) => event.preventDefault()}
         onPointerLeave={(event) => event.preventDefault()}
       >
         {title}
         <StyledCaretDownIcon />
-      </NavigationMenuTrigger>
-      <NavigationMenuContent
+      </NavMenuTrigger>
+      <NavMenuContent
         onPointerEnter={(event) => event.preventDefault()}
         onPointerLeave={(event) => event.preventDefault()}
       >
         {children}
-      </NavigationMenuContent>
-    </NavigationMenuItem>
+      </NavMenuContent>
+    </NavMenuItem>
   )
 }
 const MenuArticleCardImage = styled('div', {
@@ -163,7 +163,7 @@ const MenuArticleCardImage = styled('div', {
     transition: 'transform 0.2s ease',
   },
 })
-const MenuArticleCardLink = styled(NavigationMenuPrimitive.Link, {
+const MenuArticleCardLink = styled(NavigationMenu.Link, {
   display: 'block',
   [`&:hover ${MenuArticleCardImage}::after`]: {
     transform: 'translateX(-10px)',
@@ -217,7 +217,7 @@ const Navigation = () => {
   const [value, setValue] = React.useState('')
   const colors = colorMap[value]
   return (
-    <NavigationMenuRoot
+    <NavMenuRoot
       css={{
         ['--navigation-color-primary']: colors?.primary,
         ['--navigation-color-secondary']: colors?.secondary,
@@ -225,7 +225,7 @@ const Navigation = () => {
       value={value}
       onValueChange={setValue}
     >
-      <NavigationMenuList>
+      <NavMenuList>
         <MenuItem title="Articles" value="articles">
           <ContentList>
             <Title size="large" as="h2">
@@ -234,10 +234,10 @@ const Navigation = () => {
             <Text>
               Here you can find <span>all articles</span>
             </Text>
-            <NavigationMenuLink href="#">
+            <NavMenuLink href="#">
               View All
               <StyledArrowRightIcon />
-            </NavigationMenuLink>
+            </NavMenuLink>
           </ContentList>
           <ContentList>
             <Title size="medium" as="h3">
@@ -270,10 +270,10 @@ const Navigation = () => {
             <Text>
               We list all<span>resources here</span>
             </Text>
-            <NavigationMenuLink href="#">
+            <NavMenuLink href="#">
               View All
               <StyledArrowRightIcon />
-            </NavigationMenuLink>
+            </NavMenuLink>
           </ContentList>
           <ContentList>
             <Title size="medium" as="h3">
@@ -306,10 +306,10 @@ const Navigation = () => {
             <Text>
               Here you can find <span>all products</span>
             </Text>
-            <NavigationMenuLink href="#">
+            <NavMenuLink href="#">
               View All
               <StyledArrowRightIcon />
-            </NavigationMenuLink>
+            </NavMenuLink>
           </ContentList>
           <ContentList>
             <Title size="medium" as="h3">
@@ -342,10 +342,10 @@ const Navigation = () => {
             <Text>
               Here you can find <span>everything else</span>
             </Text>
-            <NavigationMenuLink href="#">
+            <NavMenuLink href="#">
               View All
               <StyledArrowRightIcon />
-            </NavigationMenuLink>
+            </NavMenuLink>
           </ContentList>
           <ContentList>
             <Title size="medium" as="h3">
@@ -370,12 +370,9 @@ const Navigation = () => {
             <UnderlineLink href="#">This one is trending</UnderlineLink>
           </ContentList>
         </MenuItem>
-      </NavigationMenuList>
-      <NavigationMenuViewport />
-    </NavigationMenuRoot>
+      </NavMenuList>
+      <NavMenuViewport />
+    </NavMenuRoot>
   )
 }
 export default Navigation
-// fix icon size
-// add background image for viewport or gradient
-// replace caret icon with underline
