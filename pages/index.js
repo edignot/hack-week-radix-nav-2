@@ -78,6 +78,7 @@ const CaretIcon = styled(CaretDownIcon, {
 })
 
 const ArrowIcon = styled(ArrowRightIcon, {
+  flexShrink: 0,
   width: '1.5rem',
   height: '1.5rem',
   padding: 3,
@@ -111,7 +112,6 @@ const NavContentSection = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   gap: 25,
-  border: '2px solid red',
 })
 
 const Title = styled('h1', {
@@ -122,6 +122,7 @@ const Title = styled('h1', {
     size: {
       small: {
         fontSize: '1rem',
+        marginTop: 2,
       },
       medium: {
         fontSize: '1.5rem',
@@ -147,7 +148,7 @@ const NavLink = styled(NavigationMenu.Link, {
   alignItems: 'center',
 })
 
-const ContentItemCardWrapper = styled('div', {
+const CardContainer = styled('div', {
   display: 'grid',
   gap: 25,
   gridTemplateColumns: 'repeat(2, 1fr)',
@@ -155,19 +156,38 @@ const ContentItemCardWrapper = styled('div', {
     gridTemplateColumns: 'repeat(3, 1fr)',
   },
 })
-const NavViewport = styled(NavigationMenu.Viewport, {
-  backgroundColor: violet.violet1,
-  boxShadow: `0 0 0 2px ${violet.violet5}`,
-  borderBottomLeftRadius: 25,
-  borderBottomRightRadius: 25,
-})
 
-const MenuArticleCardImage = styled('div', {
+const Card = ({ children }) => {
+  return (
+    <CardLink href="#">
+      <CardImage>
+        <div
+          style={{
+            zIndex: 1,
+            position: 'relative',
+            width: '100%',
+            height: 90,
+            borderRadius: 10,
+            backgroundImage:
+              'linear-gradient(330deg, var(--nav-color-primary) 0%, var(--nav-color-secondary) 100%)',
+          }}
+        />
+      </CardImage>
+      <div style={{ display: 'flex', gap: 10, marginTop: 20 }}>
+        <Title size="small" as="h4">
+          {children}
+        </Title>
+        <ArrowIcon />
+      </div>
+    </CardLink>
+  )
+}
+
+const CardImage = styled('div', {
   position: 'relative',
   '&::after': {
-    content: '',
     position: 'absolute',
-    backgroundColor: 'var(--nav-color-primary)',
+    content: '',
     width: '100%',
     height: '100%',
     top: 8,
@@ -175,12 +195,14 @@ const MenuArticleCardImage = styled('div', {
     zIndex: 0,
     borderRadius: 10,
     opacity: 0.5,
+    backgroundColor: 'var(--nav-color-primary)',
     transition: 'transform 0.25s ease',
   },
 })
-const MenuArticleCardLink = styled(NavigationMenu.Link, {
+
+const CardLink = styled(NavigationMenu.Link, {
   display: 'block',
-  [`&:hover ${MenuArticleCardImage}::after`]: {
+  [`&:hover ${CardImage}::after`]: {
     transform: 'translateX(-10px)',
   },
 })
@@ -188,35 +210,9 @@ const MenuArticleCardLink = styled(NavigationMenu.Link, {
 const UnderlineLink = styled(NavigationMenu.Link, {
   fontSize: '1rem',
   fontWeight: 500,
-  borderBottom: `2px solid ${gray.gray7}`,
+  textDecoration: 'underline',
 })
 
-const MenuArticleCard = ({ children }) => {
-  return (
-    <MenuArticleCardLink href="#">
-      <MenuArticleCardImage>
-        <div
-          style={{
-            position: 'relative',
-            width: '100%',
-            height: 90,
-            borderRadius: 10,
-            backgroundImage:
-              'linear-gradient(330deg, var(--nav-color-primary) 0%, var(--nav-color-secondary) 100%)',
-            zIndex: 1,
-            borderRadius: 10,
-          }}
-        />
-      </MenuArticleCardImage>
-      <div style={{ display: 'flex', gap: 10, marginTop: 20 }}>
-        <Title size="small" as="h4" css={{ marginTop: 4 }}>
-          {children}
-        </Title>
-        <ArrowIcon css={{ flexShrink: 0 }} />
-      </div>
-    </MenuArticleCardLink>
-  )
-}
 const colorMap = {
   articles: {
     primary: violet.violet9,
@@ -235,6 +231,14 @@ const colorMap = {
     secondary: 'red',
   },
 }
+
+const NavViewport = styled(NavigationMenu.Viewport, {
+  backgroundColor: gray.gray1,
+  boxShadow: `0 0 0 5px ${gray.gray7}`,
+  borderBottomLeftRadius: 25,
+  borderBottomRightRadius: 25,
+})
+
 const Navigation = () => {
   const [value, setValue] = React.useState('')
   const colors = colorMap[value]
@@ -262,18 +266,20 @@ const Navigation = () => {
               <ArrowIcon type="plain" />
             </NavLink>
           </NavContentSection>
+
           <NavContentSection>
             <Title size="medium" as="h3">
               Top Articles
             </Title>
-            <ContentItemCardWrapper>
-              <MenuArticleCard>This is an article</MenuArticleCard>
-              <MenuArticleCard>This is an article</MenuArticleCard>
-              <MenuArticleCard>This is an article</MenuArticleCard>
-              <MenuArticleCard>This is an article</MenuArticleCard>
-              <MenuArticleCard>This is an article</MenuArticleCard>
-            </ContentItemCardWrapper>
+            <CardContainer>
+              <Card>This is an article</Card>
+              <Card>This is an article</Card>
+              <Card>This is an article</Card>
+              <Card>This is an article</Card>
+              <Card>This is an article</Card>
+            </CardContainer>
           </NavContentSection>
+
           <NavContentSection>
             <Title size="medium" as="h3">
               Trending
@@ -299,18 +305,20 @@ const Navigation = () => {
               <ArrowIcon type="plain" />
             </NavLink>
           </NavContentSection>
+
           <NavContentSection>
             <Title size="medium" as="h3">
               Top Resources
             </Title>
-            <ContentItemCardWrapper>
-              <MenuArticleCard>This is an article</MenuArticleCard>
-              <MenuArticleCard>This is an article</MenuArticleCard>
-              <MenuArticleCard>This is an article</MenuArticleCard>
-              <MenuArticleCard>This is an article</MenuArticleCard>
-              <MenuArticleCard>This is an article</MenuArticleCard>
-            </ContentItemCardWrapper>
+            <CardContainer>
+              <Card>This is an article</Card>
+              <Card>This is an article</Card>
+              <Card>This is an article</Card>
+              <Card>This is an article</Card>
+              <Card>This is an article</Card>
+            </CardContainer>
           </NavContentSection>
+
           <NavContentSection>
             <Title size="medium" as="h3">
               Trending
@@ -336,18 +344,20 @@ const Navigation = () => {
               <ArrowIcon type="plain" />
             </NavLink>
           </NavContentSection>
+
           <NavContentSection>
             <Title size="medium" as="h3">
               Our Best Products
             </Title>
-            <ContentItemCardWrapper>
-              <MenuArticleCard>This is an article</MenuArticleCard>
-              <MenuArticleCard>This is an article</MenuArticleCard>
-              <MenuArticleCard>This is an article</MenuArticleCard>
-              <MenuArticleCard>This is an article</MenuArticleCard>
-              <MenuArticleCard>This is an article</MenuArticleCard>
-            </ContentItemCardWrapper>
+            <CardContainer>
+              <Card>This is an article</Card>
+              <Card>This is an article</Card>
+              <Card>This is an article</Card>
+              <Card>This is an article</Card>
+              <Card>This is an article</Card>
+            </CardContainer>
           </NavContentSection>
+
           <NavContentSection>
             <Title size="medium" as="h3">
               Trending
@@ -359,6 +369,7 @@ const Navigation = () => {
             <UnderlineLink href="#">This one is trending</UnderlineLink>
           </NavContentSection>
         </NavItemContainer>
+
         <NavItemContainer value="other" title="Other">
           <NavContentSection>
             <Title size="large" as="h2">
@@ -372,18 +383,20 @@ const Navigation = () => {
               <ArrowIcon type="plain" />
             </NavLink>
           </NavContentSection>
+
           <NavContentSection>
             <Title size="medium" as="h3">
               Top Articles
             </Title>
-            <ContentItemCardWrapper>
-              <MenuArticleCard>This is an article</MenuArticleCard>
-              <MenuArticleCard>This is an article</MenuArticleCard>
-              <MenuArticleCard>This is an article</MenuArticleCard>
-              <MenuArticleCard>This is an article</MenuArticleCard>
-              <MenuArticleCard>This is an article</MenuArticleCard>
-            </ContentItemCardWrapper>
+            <CardContainer>
+              <Card>This is an article</Card>
+              <Card>This is an article</Card>
+              <Card>This is an article</Card>
+              <Card>This is an article</Card>
+              <Card>This is an article</Card>
+            </CardContainer>
           </NavContentSection>
+
           <NavContentSection>
             <Title size="medium" as="h3">
               Trending
@@ -400,4 +413,5 @@ const Navigation = () => {
     </NavRoot>
   )
 }
+
 export default Navigation
