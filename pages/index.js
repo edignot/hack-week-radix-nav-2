@@ -29,6 +29,7 @@ const NavigationMenuTrigger = styled(NavigationMenuPrimitive.Trigger, {
   padding: 10,
   display: 'flex',
   fontSize: '1.2rem',
+  cursor: 'pointer',
   color: violet.violet12,
 })
 
@@ -64,7 +65,6 @@ const StyledArrowRightIcon = styled(ArrowRightIcon, {
   },
 })
 
-// MAIN NAV DROPDOWN GRID/FLEX CONTAINER
 const NavigationMenuContent = styled(NavigationMenuPrimitive.Content, {
   borderTop: `1px solid ${violet.violet5}`,
   width: '100%',
@@ -79,26 +79,9 @@ const NavigationMenuContent = styled(NavigationMenuPrimitive.Content, {
 const ContentList = styled('ul', {
   display: 'flex',
   padding: 0,
-  variants: {
-    type: {
-      contentDescription: {
-        flexDirection: 'column',
-        alignItems: 'flex-start',
-        gap: 25,
-      },
-      popularContent: {
-        display: 'grid',
-        gap: 25,
-        gridTemplateColumns: 'repeat(2, 1fr)',
-        '@media (min-width: 768px)': {
-          gridTemplateColumns: 'repeat(3, 1fr)',
-        },
-      },
-      otherContent: {
-        border: '2px solid yellow',
-      },
-    },
-  },
+  flexDirection: 'column',
+  alignItems: 'flex-start',
+  gap: 25,
 })
 
 const Text = styled('p', {
@@ -120,6 +103,20 @@ const Text = styled('p', {
         fontWeight: 500,
       },
     },
+  },
+})
+
+const NavigationMenuLink = styled(NavigationMenuPrimitive.Link, {
+  display: 'flex',
+  alignItems: 'center',
+})
+
+const ContentItemCardWrapper = styled('div', {
+  display: 'grid',
+  gap: 25,
+  gridTemplateColumns: 'repeat(2, 1fr)',
+  '@media (min-width: 768px)': {
+    gridTemplateColumns: 'repeat(3, 1fr)',
   },
 })
 
@@ -157,11 +154,6 @@ const ContentItemImage = styled('div', {
   },
 })
 
-const NavigationMenuLink = styled(NavigationMenuPrimitive.Link, {
-  display: 'flex',
-  alignItems: 'center',
-})
-
 const NavigationLinkTextIconWrapper = styled('div', {
   display: 'flex',
   width: '100%',
@@ -174,7 +166,6 @@ const NavigationMenuViewport = styled(NavigationMenuPrimitive.Viewport, {
   boxShadow: `0 0 0 2px ${violet.violet5}`,
   borderBottomLeftRadius: 25,
   borderBottomRightRadius: 25,
-  // Add background image
 })
 
 const Navigation = () => {
@@ -188,7 +179,7 @@ const Navigation = () => {
           </NavigationMenuTrigger>
 
           <NavigationMenuContent>
-            <ContentList type="contentDescription">
+            <ContentList>
               <Text type="navItemHeader">Articles</Text>
               <Text type="navItemDescription">
                 Here you can find <span>all articles</span>
@@ -198,55 +189,59 @@ const Navigation = () => {
                 <StyledArrowRightIcon type="withoutBackground" />
               </NavigationMenuLink>
             </ContentList>
-            <ContentList type="popularContent">
-              <NavigationMenuLink href="#">
-                <ContentItemCard>
-                  <ContentItemImage color="blue" />
-                  <NavigationLinkTextIconWrapper>
-                    <Text type="navItemLink">This is an article</Text>
-                    <StyledArrowRightIcon type="withBackground" />
-                  </NavigationLinkTextIconWrapper>
-                </ContentItemCard>
-              </NavigationMenuLink>
-              <NavigationMenuLink href="#">
-                <ContentItemCard>
-                  <ContentItemImage color="blue" />
-                  <NavigationLinkTextIconWrapper>
-                    <Text type="navItemLink">Here is another one</Text>
-                    <StyledArrowRightIcon type="withBackground" />
-                  </NavigationLinkTextIconWrapper>
-                </ContentItemCard>
-              </NavigationMenuLink>
-              <NavigationMenuLink href="#">
-                <ContentItemCard>
-                  <ContentItemImage color="blue" />
-                  <NavigationLinkTextIconWrapper>
-                    <Text type="navItemLink">One more article</Text>
-                    <StyledArrowRightIcon type="withBackground" />
-                  </NavigationLinkTextIconWrapper>
-                </ContentItemCard>
-              </NavigationMenuLink>
-              <NavigationMenuLink href="#">
-                <ContentItemCard>
-                  <ContentItemImage color="blue" />
-                  <NavigationLinkTextIconWrapper>
-                    <Text type="navItemLink">How to write article</Text>
-                    <StyledArrowRightIcon type="withBackground" />
-                  </NavigationLinkTextIconWrapper>
-                </ContentItemCard>
-              </NavigationMenuLink>
-              <NavigationMenuLink href="#">
-                <ContentItemCard>
-                  <ContentItemImage color="blue" />
-                  <NavigationLinkTextIconWrapper>
-                    <Text type="navItemLink">The final article here</Text>
-                    <StyledArrowRightIcon type="withBackground" />
-                  </NavigationLinkTextIconWrapper>
-                </ContentItemCard>
-              </NavigationMenuLink>
+            <ContentList>
+              {/* MIDDLE CONTENT */}
+              <Text type="navItemHeader">Articles</Text>
+              <ContentItemCardWrapper>
+                <NavigationMenuLink href="#">
+                  <ContentItemCard>
+                    <ContentItemImage color="blue" />
+                    <NavigationLinkTextIconWrapper>
+                      <Text type="navItemLink">This is an article</Text>
+                      <StyledArrowRightIcon type="withBackground" />
+                    </NavigationLinkTextIconWrapper>
+                  </ContentItemCard>
+                </NavigationMenuLink>
+                <NavigationMenuLink href="#">
+                  <ContentItemCard>
+                    <ContentItemImage color="blue" />
+                    <NavigationLinkTextIconWrapper>
+                      <Text type="navItemLink">Here is another one</Text>
+                      <StyledArrowRightIcon type="withBackground" />
+                    </NavigationLinkTextIconWrapper>
+                  </ContentItemCard>
+                </NavigationMenuLink>
+                <NavigationMenuLink href="#">
+                  <ContentItemCard>
+                    <ContentItemImage color="blue" />
+                    <NavigationLinkTextIconWrapper>
+                      <Text type="navItemLink">One more article</Text>
+                      <StyledArrowRightIcon type="withBackground" />
+                    </NavigationLinkTextIconWrapper>
+                  </ContentItemCard>
+                </NavigationMenuLink>
+                <NavigationMenuLink href="#">
+                  <ContentItemCard>
+                    <ContentItemImage color="blue" />
+                    <NavigationLinkTextIconWrapper>
+                      <Text type="navItemLink">How to write article</Text>
+                      <StyledArrowRightIcon type="withBackground" />
+                    </NavigationLinkTextIconWrapper>
+                  </ContentItemCard>
+                </NavigationMenuLink>
+                <NavigationMenuLink href="#">
+                  <ContentItemCard>
+                    <ContentItemImage color="blue" />
+                    <NavigationLinkTextIconWrapper>
+                      <Text type="navItemLink">The final article here</Text>
+                      <StyledArrowRightIcon type="withBackground" />
+                    </NavigationLinkTextIconWrapper>
+                  </ContentItemCard>
+                </NavigationMenuLink>
+              </ContentItemCardWrapper>
             </ContentList>
 
-            <ContentList type="otherContent">
+            <ContentList>
               <NavigationMenuLink href="#">Product 1</NavigationMenuLink>
               <NavigationMenuLink href="#">Product 1</NavigationMenuLink>
               <NavigationMenuLink href="#">Product 1</NavigationMenuLink>
@@ -294,3 +289,4 @@ const Navigation = () => {
 export default Navigation
 
 // fix icon size
+// add background image for viewport or gradient
