@@ -4,14 +4,15 @@ import { CaretDownIcon, ArrowRightIcon } from '@radix-ui/react-icons'
 import { styled } from '@stitches/react'
 import { violet, red, plum, pink } from '@radix-ui/colors'
 
-const NavMenuRoot = styled(NavigationMenu.Root, {
+const NavRoot = styled(NavigationMenu.Root, {
   display: 'flex',
   flexDirection: 'column',
-  width: '100vw',
   justifyContent: 'center',
+  width: '100vw',
   position: 'fixed',
 })
-const NavMenuList = styled(NavigationMenu.List, {
+
+const NavList = styled(NavigationMenu.List, {
   display: 'flex',
   justifyContent: 'center',
   listStyle: 'none',
@@ -19,8 +20,10 @@ const NavMenuList = styled(NavigationMenu.List, {
   width: '100%',
   backgroundColor: violet.violet1,
 })
-const NavMenuItem = styled(NavigationMenu.Item, {})
-const NavMenuTrigger = styled(NavigationMenu.Trigger, {
+
+const NavItem = styled(NavigationMenu.Item, {})
+
+const NavTrigger = styled(NavigationMenu.Trigger, {
   position: 'relative',
   padding: 30,
   display: 'flex',
@@ -60,7 +63,7 @@ const StyledArrowRightIcon = styled(ArrowRightIcon, {
   color: violet.violet1,
   backgroundColor: 'var(--navigation-color-primary)',
 })
-const NavMenuContent = styled(NavigationMenu.Content, {
+const NavContent = styled(NavigationMenu.Content, {
   borderTop: `1px solid ${violet.violet5}`,
   width: '100%',
   gap: 100,
@@ -110,7 +113,7 @@ const Text = styled('p', {
   display: 'flex',
   flexDirection: 'column',
 })
-const NavMenuLink = styled(NavigationMenu.Link, {
+const NavLink = styled(NavigationMenu.Link, {
   display: 'flex',
   alignItems: 'center',
 })
@@ -122,7 +125,7 @@ const ContentItemCardWrapper = styled('div', {
     gridTemplateColumns: 'repeat(3, 1fr)',
   },
 })
-const NavMenuViewport = styled(NavigationMenu.Viewport, {
+const NavViewport = styled(NavigationMenu.Viewport, {
   backgroundColor: violet.violet1,
   boxShadow: `0 0 0 2px ${violet.violet5}`,
   borderBottomLeftRadius: 25,
@@ -130,21 +133,21 @@ const NavMenuViewport = styled(NavigationMenu.Viewport, {
 })
 const MenuItem = ({ value, title, children }) => {
   return (
-    <NavMenuItem value={value}>
-      <NavMenuTrigger
+    <NavItem value={value}>
+      <NavTrigger
         onPointerMove={(event) => event.preventDefault()}
         onPointerLeave={(event) => event.preventDefault()}
       >
         {title}
         <StyledCaretDownIcon />
-      </NavMenuTrigger>
-      <NavMenuContent
+      </NavTrigger>
+      <NavContent
         onPointerEnter={(event) => event.preventDefault()}
         onPointerLeave={(event) => event.preventDefault()}
       >
         {children}
-      </NavMenuContent>
-    </NavMenuItem>
+      </NavContent>
+    </NavItem>
   )
 }
 const MenuArticleCardImage = styled('div', {
@@ -217,7 +220,7 @@ const Navigation = () => {
   const [value, setValue] = React.useState('')
   const colors = colorMap[value]
   return (
-    <NavMenuRoot
+    <NavRoot
       css={{
         ['--navigation-color-primary']: colors?.primary,
         ['--navigation-color-secondary']: colors?.secondary,
@@ -225,7 +228,7 @@ const Navigation = () => {
       value={value}
       onValueChange={setValue}
     >
-      <NavMenuList>
+      <NavList>
         <MenuItem title="Articles" value="articles">
           <ContentList>
             <Title size="large" as="h2">
@@ -234,10 +237,10 @@ const Navigation = () => {
             <Text>
               Here you can find <span>all articles</span>
             </Text>
-            <NavMenuLink href="#">
+            <NavLink href="#">
               View All
               <StyledArrowRightIcon />
-            </NavMenuLink>
+            </NavLink>
           </ContentList>
           <ContentList>
             <Title size="medium" as="h3">
@@ -270,10 +273,10 @@ const Navigation = () => {
             <Text>
               We list all<span>resources here</span>
             </Text>
-            <NavMenuLink href="#">
+            <NavLink href="#">
               View All
               <StyledArrowRightIcon />
-            </NavMenuLink>
+            </NavLink>
           </ContentList>
           <ContentList>
             <Title size="medium" as="h3">
@@ -306,10 +309,10 @@ const Navigation = () => {
             <Text>
               Here you can find <span>all products</span>
             </Text>
-            <NavMenuLink href="#">
+            <NavLink href="#">
               View All
               <StyledArrowRightIcon />
-            </NavMenuLink>
+            </NavLink>
           </ContentList>
           <ContentList>
             <Title size="medium" as="h3">
@@ -342,10 +345,10 @@ const Navigation = () => {
             <Text>
               Here you can find <span>everything else</span>
             </Text>
-            <NavMenuLink href="#">
+            <NavLink href="#">
               View All
               <StyledArrowRightIcon />
-            </NavMenuLink>
+            </NavLink>
           </ContentList>
           <ContentList>
             <Title size="medium" as="h3">
@@ -370,9 +373,9 @@ const Navigation = () => {
             <UnderlineLink href="#">This one is trending</UnderlineLink>
           </ContentList>
         </MenuItem>
-      </NavMenuList>
-      <NavMenuViewport />
-    </NavMenuRoot>
+      </NavList>
+      <NavViewport />
+    </NavRoot>
   )
 }
 export default Navigation
