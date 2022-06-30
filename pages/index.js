@@ -1,7 +1,7 @@
 import * as NavigationMenuPrimitive from '@radix-ui/react-navigation-menu'
 import { CaretDownIcon, ArrowRightIcon } from '@radix-ui/react-icons'
 import { styled, keyframes } from '@stitches/react'
-import { violet } from '@radix-ui/colors'
+import { violet, orange, red, purple } from '@radix-ui/colors'
 
 const NavigationMenuRoot = styled(NavigationMenuPrimitive.Root, {
   display: 'flex',
@@ -49,17 +49,29 @@ const StyledCaretDownIcon = styled(CaretDownIcon, {
 const StyledArrowRightIcon = styled(ArrowRightIcon, {
   width: 25,
   height: 25,
+  borderRadius: 50,
   padding: 4,
+  color: violet.violet1,
   variants: {
-    type: {
-      withBackground: {
-        borderRadius: 50,
+    backgroundColor: {
+      transparent: {
+        color: violet.violet12,
+      },
+      blue: {
         backgroundColor: violet.violet9,
-        color: violet.violet1,
         boxShadow: `0 0 0 2px ${violet.violet5}`,
       },
-      withoutBackground: {
-        color: violet.violet12,
+      orange: {
+        backgroundColor: orange.orange9,
+        boxShadow: `0 0 0 2px ${orange.orange5}`,
+      },
+      purple: {
+        backgroundColor: purple.purple9,
+        boxShadow: `0 0 0 2px ${purple.purple5}`,
+      },
+      red: {
+        backgroundColor: red.red9,
+        boxShadow: `0 0 0 2px ${red.red5}`,
       },
     },
   },
@@ -68,12 +80,14 @@ const StyledArrowRightIcon = styled(ArrowRightIcon, {
 const NavigationMenuContent = styled(NavigationMenuPrimitive.Content, {
   borderTop: `1px solid ${violet.violet5}`,
   width: '100%',
-  display: 'flex',
-  justifyContent: 'center',
-  alignContent: 'center',
-  flexWrap: 'wrap',
   gap: 100,
   padding: 50,
+  display: 'grid',
+  gridTemplate: 'auto / 1fr',
+  justifyItems: 'center',
+  '@media (min-width: 1200px)': {
+    gridTemplate: 'auto / 1fr 1fr 1fr',
+  },
 })
 
 const ContentList = styled('ul', {
@@ -137,7 +151,6 @@ const ContentItemCard = styled('div', {
   flexDirection: 'column',
   alignItems: 'center',
   gap: 10,
-  // justifyContent: 'space-between',
 })
 
 const ContentItemImage = styled('div', {
@@ -195,7 +208,7 @@ const Navigation = () => {
               </Text>
               <NavigationMenuLink href="#">
                 View All
-                <StyledArrowRightIcon type="withoutBackground" />
+                <StyledArrowRightIcon backgroundColor="transparent" />
               </NavigationMenuLink>
             </ContentList>
             <ContentList>
@@ -206,7 +219,7 @@ const Navigation = () => {
                     <ContentItemImage color="blue" />
                     <NavigationLinkTextIconWrapper>
                       <Text type="navItemLink">This is an article</Text>
-                      <StyledArrowRightIcon type="withBackground" />
+                      <StyledArrowRightIcon backgroundColor="blue" />
                     </NavigationLinkTextIconWrapper>
                   </ContentItemCard>
                 </NavigationMenuLink>
@@ -215,7 +228,7 @@ const Navigation = () => {
                     <ContentItemImage color="blue" />
                     <NavigationLinkTextIconWrapper>
                       <Text type="navItemLink">Here is another one</Text>
-                      <StyledArrowRightIcon type="withBackground" />
+                      <StyledArrowRightIcon backgroundColor="blue" />
                     </NavigationLinkTextIconWrapper>
                   </ContentItemCard>
                 </NavigationMenuLink>
@@ -224,7 +237,7 @@ const Navigation = () => {
                     <ContentItemImage color="blue" />
                     <NavigationLinkTextIconWrapper>
                       <Text type="navItemLink">One more article</Text>
-                      <StyledArrowRightIcon type="withBackground" />
+                      <StyledArrowRightIcon backgroundColor="blue" />
                     </NavigationLinkTextIconWrapper>
                   </ContentItemCard>
                 </NavigationMenuLink>
@@ -233,7 +246,7 @@ const Navigation = () => {
                     <ContentItemImage color="blue" />
                     <NavigationLinkTextIconWrapper>
                       <Text type="navItemLink">How to write article</Text>
-                      <StyledArrowRightIcon type="withBackground" />
+                      <StyledArrowRightIcon backgroundColor="blue" />
                     </NavigationLinkTextIconWrapper>
                   </ContentItemCard>
                 </NavigationMenuLink>
@@ -242,7 +255,7 @@ const Navigation = () => {
                     <ContentItemImage color="blue" />
                     <NavigationLinkTextIconWrapper>
                       <Text type="navItemLink">The final article here</Text>
-                      <StyledArrowRightIcon type="withBackground" />
+                      <StyledArrowRightIcon backgroundColor="blue" />
                     </NavigationLinkTextIconWrapper>
                   </ContentItemCard>
                 </NavigationMenuLink>
@@ -284,7 +297,7 @@ const Navigation = () => {
               </Text>
               <NavigationMenuLink href="#">
                 View All
-                <StyledArrowRightIcon type="withoutBackground" />
+                <StyledArrowRightIcon backgroundColor="transparent" />
               </NavigationMenuLink>
             </ContentList>
             <ContentList>
@@ -295,7 +308,7 @@ const Navigation = () => {
                     <ContentItemImage color="orange" />
                     <NavigationLinkTextIconWrapper>
                       <Text type="navItemLink">This is a resource</Text>
-                      <StyledArrowRightIcon type="withBackground" />
+                      <StyledArrowRightIcon backgroundColor="orange" />
                     </NavigationLinkTextIconWrapper>
                   </ContentItemCard>
                 </NavigationMenuLink>
@@ -304,7 +317,7 @@ const Navigation = () => {
                     <ContentItemImage color="orange" />
                     <NavigationLinkTextIconWrapper>
                       <Text type="navItemLink">Here is another one</Text>
-                      <StyledArrowRightIcon type="withBackground" />
+                      <StyledArrowRightIcon backgroundColor="orange" />
                     </NavigationLinkTextIconWrapper>
                   </ContentItemCard>
                 </NavigationMenuLink>
@@ -313,7 +326,7 @@ const Navigation = () => {
                     <ContentItemImage color="orange" />
                     <NavigationLinkTextIconWrapper>
                       <Text type="navItemLink">One more resource</Text>
-                      <StyledArrowRightIcon type="withBackground" />
+                      <StyledArrowRightIcon backgroundColor="orange" />
                     </NavigationLinkTextIconWrapper>
                   </ContentItemCard>
                 </NavigationMenuLink>
@@ -322,7 +335,7 @@ const Navigation = () => {
                     <ContentItemImage color="orange" />
                     <NavigationLinkTextIconWrapper>
                       <Text type="navItemLink">How to create a resource</Text>
-                      <StyledArrowRightIcon type="withBackground" />
+                      <StyledArrowRightIcon backgroundColor="orange" />
                     </NavigationLinkTextIconWrapper>
                   </ContentItemCard>
                 </NavigationMenuLink>
@@ -331,7 +344,7 @@ const Navigation = () => {
                     <ContentItemImage color="orange" />
                     <NavigationLinkTextIconWrapper>
                       <Text type="navItemLink">The final resource here</Text>
-                      <StyledArrowRightIcon type="withBackground" />
+                      <StyledArrowRightIcon backgroundColor="orange" />
                     </NavigationLinkTextIconWrapper>
                   </ContentItemCard>
                 </NavigationMenuLink>
@@ -373,7 +386,7 @@ const Navigation = () => {
               </Text>
               <NavigationMenuLink href="#">
                 View All
-                <StyledArrowRightIcon type="withoutBackground" />
+                <StyledArrowRightIcon backgroundColor="transparent" />
               </NavigationMenuLink>
             </ContentList>
             <ContentList>
@@ -384,7 +397,7 @@ const Navigation = () => {
                     <ContentItemImage color="purple" />
                     <NavigationLinkTextIconWrapper>
                       <Text type="navItemLink">This is an article</Text>
-                      <StyledArrowRightIcon type="withBackground" />
+                      <StyledArrowRightIcon backgroundColor="purple" />
                     </NavigationLinkTextIconWrapper>
                   </ContentItemCard>
                 </NavigationMenuLink>
@@ -393,7 +406,7 @@ const Navigation = () => {
                     <ContentItemImage color="purple" />
                     <NavigationLinkTextIconWrapper>
                       <Text type="navItemLink">Here is another one</Text>
-                      <StyledArrowRightIcon type="withBackground" />
+                      <StyledArrowRightIcon backgroundColor="purple" />
                     </NavigationLinkTextIconWrapper>
                   </ContentItemCard>
                 </NavigationMenuLink>
@@ -402,7 +415,7 @@ const Navigation = () => {
                     <ContentItemImage color="purple" />
                     <NavigationLinkTextIconWrapper>
                       <Text type="navItemLink">One more article</Text>
-                      <StyledArrowRightIcon type="withBackground" />
+                      <StyledArrowRightIcon backgroundColor="purple" />
                     </NavigationLinkTextIconWrapper>
                   </ContentItemCard>
                 </NavigationMenuLink>
@@ -411,7 +424,7 @@ const Navigation = () => {
                     <ContentItemImage color="purple" />
                     <NavigationLinkTextIconWrapper>
                       <Text type="navItemLink">How to write article</Text>
-                      <StyledArrowRightIcon type="withBackground" />
+                      <StyledArrowRightIcon backgroundColor="purple" />
                     </NavigationLinkTextIconWrapper>
                   </ContentItemCard>
                 </NavigationMenuLink>
@@ -420,7 +433,7 @@ const Navigation = () => {
                     <ContentItemImage color="purple" />
                     <NavigationLinkTextIconWrapper>
                       <Text type="navItemLink">The final article here</Text>
-                      <StyledArrowRightIcon type="withBackground" />
+                      <StyledArrowRightIcon backgroundColor="purple" />
                     </NavigationLinkTextIconWrapper>
                   </ContentItemCard>
                 </NavigationMenuLink>
@@ -462,7 +475,7 @@ const Navigation = () => {
               </Text>
               <NavigationMenuLink href="#">
                 View All
-                <StyledArrowRightIcon type="withoutBackground" />
+                <StyledArrowRightIcon backgroundColor="transparent" />
               </NavigationMenuLink>
             </ContentList>
             <ContentList>
@@ -473,7 +486,7 @@ const Navigation = () => {
                     <ContentItemImage color="red" />
                     <NavigationLinkTextIconWrapper>
                       <Text type="navItemLink">This is an article</Text>
-                      <StyledArrowRightIcon type="withBackground" />
+                      <StyledArrowRightIcon backgroundColor="red" />
                     </NavigationLinkTextIconWrapper>
                   </ContentItemCard>
                 </NavigationMenuLink>
@@ -482,7 +495,7 @@ const Navigation = () => {
                     <ContentItemImage color="red" />
                     <NavigationLinkTextIconWrapper>
                       <Text type="navItemLink">Here is another one</Text>
-                      <StyledArrowRightIcon type="withBackground" />
+                      <StyledArrowRightIcon backgroundColor="red" />
                     </NavigationLinkTextIconWrapper>
                   </ContentItemCard>
                 </NavigationMenuLink>
@@ -491,7 +504,7 @@ const Navigation = () => {
                     <ContentItemImage color="red" />
                     <NavigationLinkTextIconWrapper>
                       <Text type="navItemLink">One more article</Text>
-                      <StyledArrowRightIcon type="withBackground" />
+                      <StyledArrowRightIcon backgroundColor="red" />
                     </NavigationLinkTextIconWrapper>
                   </ContentItemCard>
                 </NavigationMenuLink>
@@ -500,7 +513,7 @@ const Navigation = () => {
                     <ContentItemImage color="red" />
                     <NavigationLinkTextIconWrapper>
                       <Text type="navItemLink">How to write article</Text>
-                      <StyledArrowRightIcon type="withBackground" />
+                      <StyledArrowRightIcon backgroundColor="red" />
                     </NavigationLinkTextIconWrapper>
                   </ContentItemCard>
                 </NavigationMenuLink>
@@ -509,7 +522,7 @@ const Navigation = () => {
                     <ContentItemImage color="red" />
                     <NavigationLinkTextIconWrapper>
                       <Text type="navItemLink">The final article here</Text>
-                      <StyledArrowRightIcon type="withBackground" />
+                      <StyledArrowRightIcon backgroundColor="red" />
                     </NavigationLinkTextIconWrapper>
                   </ContentItemCard>
                 </NavigationMenuLink>
