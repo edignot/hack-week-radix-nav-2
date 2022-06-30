@@ -2,7 +2,16 @@ import React from 'react'
 import * as NavigationMenu from '@radix-ui/react-navigation-menu'
 import { CaretDownIcon, ArrowRightIcon } from '@radix-ui/react-icons'
 import { styled } from '@stitches/react'
-import { violet, red, plum, pink, gray } from '@radix-ui/colors'
+import {
+  violet,
+  plum,
+  gray,
+  blue,
+  purple,
+  cyan,
+  indigo,
+  crimson,
+} from '@radix-ui/colors'
 
 const NavRoot = styled(NavigationMenu.Root, {
   display: 'flex',
@@ -194,7 +203,7 @@ const CardImage = styled('div', {
     left: 0,
     zIndex: 0,
     borderRadius: 10,
-    opacity: 0.5,
+    opacity: 0.25,
     backgroundColor: 'var(--nav-color-primary)',
     transition: 'transform 0.25s ease',
   },
@@ -215,20 +224,20 @@ const UnderlineLink = styled(NavigationMenu.Link, {
 
 const colorMap = {
   articles: {
-    primary: violet.violet9,
-    secondary: plum.plum9,
+    primary: blue.blue11,
+    secondary: violet.violet11,
   },
   resources: {
-    primary: red.red9,
-    secondary: pink.pink9,
+    primary: crimson.crimson11,
+    secondary: plum.plum11,
   },
   products: {
-    primary: 'yellow',
-    secondary: 'red',
+    primary: purple.purple11,
+    secondary: indigo.indigo11,
   },
   other: {
-    primary: 'green',
-    secondary: 'red',
+    primary: cyan.cyan11,
+    secondary: indigo.indigo11,
   },
 }
 
