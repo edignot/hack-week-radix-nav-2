@@ -155,6 +155,9 @@ const Text = styled('p', {
 const NavLink = styled(NavigationMenu.Link, {
   display: 'flex',
   alignItems: 'center',
+  fontSize: '1rem',
+  fontWeight: 500,
+  textDecoration: 'underline',
 })
 
 const CardContainer = styled('div', {
@@ -214,12 +217,6 @@ const CardLink = styled(NavigationMenu.Link, {
   [`&:hover ${CardImage}::after`]: {
     transform: 'translateX(-10px)',
   },
-})
-
-const UnderlineLink = styled(NavigationMenu.Link, {
-  fontSize: '1rem',
-  fontWeight: 500,
-  textDecoration: 'underline',
 })
 
 const colorMap = {
@@ -293,11 +290,11 @@ const Navigation = () => {
             <Title size="medium" as="h3">
               Trending
             </Title>
-            <UnderlineLink href="#">This one is trending</UnderlineLink>
-            <UnderlineLink href="#">This one is trending</UnderlineLink>
-            <UnderlineLink href="#">This one is trending</UnderlineLink>
-            <UnderlineLink href="#">This one is trending</UnderlineLink>
-            <UnderlineLink href="#">This one is trending</UnderlineLink>
+            <NavLink href="#">This one is trending</NavLink>
+            <NavLink href="#">This one is trending</NavLink>
+            <NavLink href="#">This one is trending</NavLink>
+            <NavLink href="#">This one is trending</NavLink>
+            <NavLink href="#">This one is trending</NavLink>
           </NavContentSection>
         </NavItemContainer>
 
@@ -332,11 +329,11 @@ const Navigation = () => {
             <Title size="medium" as="h3">
               Trending
             </Title>
-            <UnderlineLink href="#">This one is trending</UnderlineLink>
-            <UnderlineLink href="#">This one is trending</UnderlineLink>
-            <UnderlineLink href="#">This one is trending</UnderlineLink>
-            <UnderlineLink href="#">This one is trending</UnderlineLink>
-            <UnderlineLink href="#">This one is trending</UnderlineLink>
+            <NavLink href="#">This one is trending</NavLink>
+            <NavLink href="#">This one is trending</NavLink>
+            <NavLink href="#">This one is trending</NavLink>
+            <NavLink href="#">This one is trending</NavLink>
+            <NavLink href="#">This one is trending</NavLink>
           </NavContentSection>
         </NavItemContainer>
 
@@ -371,11 +368,11 @@ const Navigation = () => {
             <Title size="medium" as="h3">
               Trending
             </Title>
-            <UnderlineLink href="#">This one is trending</UnderlineLink>
-            <UnderlineLink href="#">This one is trending</UnderlineLink>
-            <UnderlineLink href="#">This one is trending</UnderlineLink>
-            <UnderlineLink href="#">This one is trending</UnderlineLink>
-            <UnderlineLink href="#">This one is trending</UnderlineLink>
+            <NavLink href="#">This one is trending</NavLink>
+            <NavLink href="#">This one is trending</NavLink>
+            <NavLink href="#">This one is trending</NavLink>
+            <NavLink href="#">This one is trending</NavLink>
+            <NavLink href="#">This one is trending</NavLink>
           </NavContentSection>
         </NavItemContainer>
 
@@ -410,11 +407,11 @@ const Navigation = () => {
             <Title size="medium" as="h3">
               Trending
             </Title>
-            <UnderlineLink href="#">This one is trending</UnderlineLink>
-            <UnderlineLink href="#">This one is trending</UnderlineLink>
-            <UnderlineLink href="#">This one is trending</UnderlineLink>
-            <UnderlineLink href="#">This one is trending</UnderlineLink>
-            <UnderlineLink href="#">This one is trending</UnderlineLink>
+            <NavLink href="#">This one is trending</NavLink>
+            <NavLink href="#">This one is trending</NavLink>
+            <NavLink href="#">This one is trending</NavLink>
+            <NavLink href="#">This one is trending</NavLink>
+            <NavLink href="#">This one is trending</NavLink>
           </NavContentSection>
         </NavItemContainer>
       </NavList>
