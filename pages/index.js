@@ -91,16 +91,26 @@ const Text = styled('p', {
   variants: {
     type: {
       navItemHeader: {
-        fontSize: '2rem',
+        fontSize: '2.5rem',
         fontWeight: 500,
       },
       navItemDescription: {
+        fontSize: '1.2rem',
         display: 'flex',
         flexDirection: 'column',
+      },
+      navItemSectionTitle: {
+        fontSize: '1.5rem',
+        fontWeight: 500,
       },
       navItemLink: {
         fontSize: '1rem',
         fontWeight: 500,
+      },
+      navItemUnderlinedLink: {
+        fontSize: '1rem',
+        fontWeight: 500,
+        borderBottom: `2px solid ${violet.violet7}`,
       },
     },
   },
@@ -170,14 +180,13 @@ const NavigationMenuViewport = styled(NavigationMenuPrimitive.Viewport, {
 
 const Navigation = () => {
   return (
-    <NavigationMenuRoot value="item1">
+    <NavigationMenuRoot>
       <NavigationMenuList>
         <NavigationMenuItem value="item1">
           <NavigationMenuTrigger>
             Articles
             <StyledCaretDownIcon />
           </NavigationMenuTrigger>
-
           <NavigationMenuContent>
             <ContentList>
               <Text type="navItemHeader">Articles</Text>
@@ -190,8 +199,7 @@ const Navigation = () => {
               </NavigationMenuLink>
             </ContentList>
             <ContentList>
-              {/* MIDDLE CONTENT */}
-              <Text type="navItemHeader">Articles</Text>
+              <Text type="navItemSectionTitle">Top Articles</Text>
               <ContentItemCardWrapper>
                 <NavigationMenuLink href="#">
                   <ContentItemCard>
@@ -240,47 +248,296 @@ const Navigation = () => {
                 </NavigationMenuLink>
               </ContentItemCardWrapper>
             </ContentList>
-
             <ContentList>
-              <NavigationMenuLink href="#">Product 1</NavigationMenuLink>
-              <NavigationMenuLink href="#">Product 1</NavigationMenuLink>
-              <NavigationMenuLink href="#">Product 1</NavigationMenuLink>
+              <Text type="navItemSectionTitle">Trending</Text>
+              <NavigationMenuLink href="#">
+                <Text type="navItemUnderlinedLink">This one is trending</Text>
+              </NavigationMenuLink>
+              <NavigationMenuLink href="#">
+                <Text type="navItemUnderlinedLink">Here is another one</Text>
+              </NavigationMenuLink>
+              <NavigationMenuLink href="#">
+                <Text type="navItemUnderlinedLink">
+                  Read a trending article
+                </Text>
+              </NavigationMenuLink>
+              <NavigationMenuLink href="#">
+                <Text type="navItemUnderlinedLink">The final one to check</Text>
+              </NavigationMenuLink>
+              <NavigationMenuLink href="#">
+                <Text type="navItemUnderlinedLink">Interesting text</Text>
+              </NavigationMenuLink>
             </ContentList>
           </NavigationMenuContent>
         </NavigationMenuItem>
+
         <NavigationMenuItem>
           <NavigationMenuTrigger>
             Resources
             <StyledCaretDownIcon />
           </NavigationMenuTrigger>
           <NavigationMenuContent>
-            <NavigationMenuLink href="#">Product 2</NavigationMenuLink>
-            <NavigationMenuLink href="#">Product 3</NavigationMenuLink>
-            <NavigationMenuLink href="#">Product 4</NavigationMenuLink>
+            <ContentList>
+              <Text type="navItemHeader">Resources</Text>
+              <Text type="navItemDescription">
+                We list all<span>resources here</span>
+              </Text>
+              <NavigationMenuLink href="#">
+                View All
+                <StyledArrowRightIcon type="withoutBackground" />
+              </NavigationMenuLink>
+            </ContentList>
+            <ContentList>
+              <Text type="navItemSectionTitle">Top Resources</Text>
+              <ContentItemCardWrapper>
+                <NavigationMenuLink href="#">
+                  <ContentItemCard>
+                    <ContentItemImage color="orange" />
+                    <NavigationLinkTextIconWrapper>
+                      <Text type="navItemLink">This is a resource</Text>
+                      <StyledArrowRightIcon type="withBackground" />
+                    </NavigationLinkTextIconWrapper>
+                  </ContentItemCard>
+                </NavigationMenuLink>
+                <NavigationMenuLink href="#">
+                  <ContentItemCard>
+                    <ContentItemImage color="orange" />
+                    <NavigationLinkTextIconWrapper>
+                      <Text type="navItemLink">Here is another one</Text>
+                      <StyledArrowRightIcon type="withBackground" />
+                    </NavigationLinkTextIconWrapper>
+                  </ContentItemCard>
+                </NavigationMenuLink>
+                <NavigationMenuLink href="#">
+                  <ContentItemCard>
+                    <ContentItemImage color="orange" />
+                    <NavigationLinkTextIconWrapper>
+                      <Text type="navItemLink">One more resource</Text>
+                      <StyledArrowRightIcon type="withBackground" />
+                    </NavigationLinkTextIconWrapper>
+                  </ContentItemCard>
+                </NavigationMenuLink>
+                <NavigationMenuLink href="#">
+                  <ContentItemCard>
+                    <ContentItemImage color="orange" />
+                    <NavigationLinkTextIconWrapper>
+                      <Text type="navItemLink">How to create a resource</Text>
+                      <StyledArrowRightIcon type="withBackground" />
+                    </NavigationLinkTextIconWrapper>
+                  </ContentItemCard>
+                </NavigationMenuLink>
+                <NavigationMenuLink href="#">
+                  <ContentItemCard>
+                    <ContentItemImage color="orange" />
+                    <NavigationLinkTextIconWrapper>
+                      <Text type="navItemLink">The final resource here</Text>
+                      <StyledArrowRightIcon type="withBackground" />
+                    </NavigationLinkTextIconWrapper>
+                  </ContentItemCard>
+                </NavigationMenuLink>
+              </ContentItemCardWrapper>
+            </ContentList>
+            <ContentList>
+              <Text type="navItemSectionTitle">Trending</Text>
+              <NavigationMenuLink href="#">
+                <Text type="navItemUnderlinedLink">Here is another one</Text>
+              </NavigationMenuLink>
+              <NavigationMenuLink href="#">
+                <Text type="navItemUnderlinedLink">Interesting text</Text>
+              </NavigationMenuLink>
+              <NavigationMenuLink href="#">
+                <Text type="navItemUnderlinedLink">This one is trending</Text>
+              </NavigationMenuLink>
+              <NavigationMenuLink href="#">
+                <Text type="navItemUnderlinedLink">
+                  Read a trending article
+                </Text>
+              </NavigationMenuLink>
+              <NavigationMenuLink href="#">
+                <Text type="navItemUnderlinedLink">The final one to check</Text>
+              </NavigationMenuLink>
+            </ContentList>
           </NavigationMenuContent>
         </NavigationMenuItem>
+
         <NavigationMenuItem>
           <NavigationMenuTrigger>
-            Product <StyledCaretDownIcon />
+            Products
+            <StyledCaretDownIcon />
           </NavigationMenuTrigger>
           <NavigationMenuContent>
-            <NavigationMenuLink href="#">Product 5</NavigationMenuLink>
-            <NavigationMenuLink href="#">Product 6</NavigationMenuLink>
-            <NavigationMenuLink href="#">Product 7</NavigationMenuLink>
+            <ContentList>
+              <Text type="navItemHeader">Products</Text>
+              <Text type="navItemDescription">
+                Here you can find <span>all products</span>
+              </Text>
+              <NavigationMenuLink href="#">
+                View All
+                <StyledArrowRightIcon type="withoutBackground" />
+              </NavigationMenuLink>
+            </ContentList>
+            <ContentList>
+              <Text type="navItemSectionTitle">Our Best Products</Text>
+              <ContentItemCardWrapper>
+                <NavigationMenuLink href="#">
+                  <ContentItemCard>
+                    <ContentItemImage color="purple" />
+                    <NavigationLinkTextIconWrapper>
+                      <Text type="navItemLink">This is an article</Text>
+                      <StyledArrowRightIcon type="withBackground" />
+                    </NavigationLinkTextIconWrapper>
+                  </ContentItemCard>
+                </NavigationMenuLink>
+                <NavigationMenuLink href="#">
+                  <ContentItemCard>
+                    <ContentItemImage color="purple" />
+                    <NavigationLinkTextIconWrapper>
+                      <Text type="navItemLink">Here is another one</Text>
+                      <StyledArrowRightIcon type="withBackground" />
+                    </NavigationLinkTextIconWrapper>
+                  </ContentItemCard>
+                </NavigationMenuLink>
+                <NavigationMenuLink href="#">
+                  <ContentItemCard>
+                    <ContentItemImage color="purple" />
+                    <NavigationLinkTextIconWrapper>
+                      <Text type="navItemLink">One more article</Text>
+                      <StyledArrowRightIcon type="withBackground" />
+                    </NavigationLinkTextIconWrapper>
+                  </ContentItemCard>
+                </NavigationMenuLink>
+                <NavigationMenuLink href="#">
+                  <ContentItemCard>
+                    <ContentItemImage color="purple" />
+                    <NavigationLinkTextIconWrapper>
+                      <Text type="navItemLink">How to write article</Text>
+                      <StyledArrowRightIcon type="withBackground" />
+                    </NavigationLinkTextIconWrapper>
+                  </ContentItemCard>
+                </NavigationMenuLink>
+                <NavigationMenuLink href="#">
+                  <ContentItemCard>
+                    <ContentItemImage color="purple" />
+                    <NavigationLinkTextIconWrapper>
+                      <Text type="navItemLink">The final article here</Text>
+                      <StyledArrowRightIcon type="withBackground" />
+                    </NavigationLinkTextIconWrapper>
+                  </ContentItemCard>
+                </NavigationMenuLink>
+              </ContentItemCardWrapper>
+            </ContentList>
+            <ContentList>
+              <Text type="navItemSectionTitle">Trending</Text>
+              <NavigationMenuLink href="#">
+                <Text type="navItemUnderlinedLink">This one is trending</Text>
+              </NavigationMenuLink>
+              <NavigationMenuLink href="#">
+                <Text type="navItemUnderlinedLink">Here is another one</Text>
+              </NavigationMenuLink>
+              <NavigationMenuLink href="#">
+                <Text type="navItemUnderlinedLink">
+                  Read a trending article
+                </Text>
+              </NavigationMenuLink>
+              <NavigationMenuLink href="#">
+                <Text type="navItemUnderlinedLink">The final one to check</Text>
+              </NavigationMenuLink>
+              <NavigationMenuLink href="#">
+                <Text type="navItemUnderlinedLink">Interesting text</Text>
+              </NavigationMenuLink>
+            </ContentList>
           </NavigationMenuContent>
         </NavigationMenuItem>
+
         <NavigationMenuItem>
           <NavigationMenuTrigger>
-            Company <StyledCaretDownIcon />
+            Other
+            <StyledCaretDownIcon />
           </NavigationMenuTrigger>
           <NavigationMenuContent>
-            <NavigationMenuLink href="#">Product 5</NavigationMenuLink>
-            <NavigationMenuLink href="#">Product 6</NavigationMenuLink>
-            <NavigationMenuLink href="#">Product 7</NavigationMenuLink>
+            <ContentList>
+              <Text type="navItemHeader">Other</Text>
+              <Text type="navItemDescription">
+                Here you can find <span>everything else</span>
+              </Text>
+              <NavigationMenuLink href="#">
+                View All
+                <StyledArrowRightIcon type="withoutBackground" />
+              </NavigationMenuLink>
+            </ContentList>
+            <ContentList>
+              <Text type="navItemSectionTitle">Top Articles</Text>
+              <ContentItemCardWrapper>
+                <NavigationMenuLink href="#">
+                  <ContentItemCard>
+                    <ContentItemImage color="red" />
+                    <NavigationLinkTextIconWrapper>
+                      <Text type="navItemLink">This is an article</Text>
+                      <StyledArrowRightIcon type="withBackground" />
+                    </NavigationLinkTextIconWrapper>
+                  </ContentItemCard>
+                </NavigationMenuLink>
+                <NavigationMenuLink href="#">
+                  <ContentItemCard>
+                    <ContentItemImage color="red" />
+                    <NavigationLinkTextIconWrapper>
+                      <Text type="navItemLink">Here is another one</Text>
+                      <StyledArrowRightIcon type="withBackground" />
+                    </NavigationLinkTextIconWrapper>
+                  </ContentItemCard>
+                </NavigationMenuLink>
+                <NavigationMenuLink href="#">
+                  <ContentItemCard>
+                    <ContentItemImage color="red" />
+                    <NavigationLinkTextIconWrapper>
+                      <Text type="navItemLink">One more article</Text>
+                      <StyledArrowRightIcon type="withBackground" />
+                    </NavigationLinkTextIconWrapper>
+                  </ContentItemCard>
+                </NavigationMenuLink>
+                <NavigationMenuLink href="#">
+                  <ContentItemCard>
+                    <ContentItemImage color="red" />
+                    <NavigationLinkTextIconWrapper>
+                      <Text type="navItemLink">How to write article</Text>
+                      <StyledArrowRightIcon type="withBackground" />
+                    </NavigationLinkTextIconWrapper>
+                  </ContentItemCard>
+                </NavigationMenuLink>
+                <NavigationMenuLink href="#">
+                  <ContentItemCard>
+                    <ContentItemImage color="red" />
+                    <NavigationLinkTextIconWrapper>
+                      <Text type="navItemLink">The final article here</Text>
+                      <StyledArrowRightIcon type="withBackground" />
+                    </NavigationLinkTextIconWrapper>
+                  </ContentItemCard>
+                </NavigationMenuLink>
+              </ContentItemCardWrapper>
+            </ContentList>
+            <ContentList>
+              <Text type="navItemSectionTitle">Trending</Text>
+              <NavigationMenuLink href="#">
+                <Text type="navItemUnderlinedLink">This one is trending</Text>
+              </NavigationMenuLink>
+              <NavigationMenuLink href="#">
+                <Text type="navItemUnderlinedLink">
+                  Read a trending article
+                </Text>
+              </NavigationMenuLink>
+              <NavigationMenuLink href="#">
+                <Text type="navItemUnderlinedLink">Here is another one</Text>
+              </NavigationMenuLink>
+              <NavigationMenuLink href="#">
+                <Text type="navItemUnderlinedLink">The final one to check</Text>
+              </NavigationMenuLink>
+              <NavigationMenuLink href="#">
+                <Text type="navItemUnderlinedLink">Interesting text</Text>
+              </NavigationMenuLink>
+            </ContentList>
           </NavigationMenuContent>
         </NavigationMenuItem>
       </NavigationMenuList>
-
       <NavigationMenuViewport />
     </NavigationMenuRoot>
   )
