@@ -55,6 +55,7 @@ const StyledArrowRightIcon = styled(ArrowRightIcon, {
         borderRadius: 50,
         backgroundColor: violet.violet9,
         color: violet.violet1,
+        boxShadow: `0 0 0 2px ${violet.violet5}`,
       },
       withoutBackground: {
         color: violet.violet12,
@@ -115,34 +116,57 @@ const Text = styled('p', {
         flexDirection: 'column',
       },
       navItemLink: {
-        fontSize: '2rem',
+        fontSize: '1rem',
+        fontWeight: 500,
       },
     },
   },
 })
 
 const ContentItemCard = styled('div', {
-  border: `1px solid ${violet.violet5}`,
   width: 150,
   height: 150,
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  justifyContent: 'space-between',
+  gap: 10,
+  // justifyContent: 'space-between',
 })
 
 const ContentItemImage = styled('div', {
   width: '100%',
-  height: '70%',
+  height: '65%',
+  borderRadius: 10,
   backgroundImage:
     'linear-gradient(330deg, hsl(272,53%,20%) 0%, hsl(226,68%,56%) 100%)',
-  borderRadius: 10,
+  variants: {
+    color: {
+      red: {
+        backgroundImage:
+          'linear-gradient(330deg, rgb(195, 60, 60) 0%, rgb(219, 92, 67) 100%)',
+      },
+      purple: {
+        backgroundImage:
+          'linear-gradient(330deg, rgb(114, 60, 195) 0%, rgb(186, 67, 219) 100%)',
+      },
+      orange: {
+        backgroundImage:
+          'linear-gradient(330deg, rgb(195, 179, 60) 0%, rgb(219, 67, 67) 100%)',
+      },
+    },
+  },
 })
 
 const NavigationMenuLink = styled(NavigationMenuPrimitive.Link, {
   display: 'flex',
-  gap: 10,
   alignItems: 'center',
+})
+
+const NavigationLinkTextIconWrapper = styled('div', {
+  display: 'flex',
+  width: '100%',
+  justifyContent: 'space-between',
+  alignItems: 'flex-start',
 })
 
 const NavigationMenuViewport = styled(NavigationMenuPrimitive.Viewport, {
@@ -174,43 +198,52 @@ const Navigation = () => {
                 <StyledArrowRightIcon type="withoutBackground" />
               </NavigationMenuLink>
             </ContentList>
-
             <ContentList type="popularContent">
-              <ContentItemCard>
-                <ContentItemImage />
-                <NavigationMenuLink href="#">
-                  This is an Article
-                  <StyledArrowRightIcon type="withBackground" />
-                </NavigationMenuLink>
-              </ContentItemCard>
-              <ContentItemCard>
-                <ContentItemImage />
-                <NavigationMenuLink href="#">
-                  Another Article
-                  <StyledArrowRightIcon type="withBackground" />
-                </NavigationMenuLink>
-              </ContentItemCard>
-              <ContentItemCard>
-                <ContentItemImage />
-                <NavigationMenuLink href="#">
-                  One More Article
-                  <StyledArrowRightIcon type="withBackground" />
-                </NavigationMenuLink>
-              </ContentItemCard>
-              <ContentItemCard>
-                <ContentItemImage />
-                <NavigationMenuLink href="#">
-                  How to Write an Article
-                  <StyledArrowRightIcon type="withBackground" />
-                </NavigationMenuLink>
-              </ContentItemCard>
-              <ContentItemCard>
-                <ContentItemImage />
-                <NavigationMenuLink href="#">
-                  The Final One
-                  <StyledArrowRightIcon type="withBackground" />
-                </NavigationMenuLink>
-              </ContentItemCard>
+              <NavigationMenuLink href="#">
+                <ContentItemCard>
+                  <ContentItemImage color="blue" />
+                  <NavigationLinkTextIconWrapper>
+                    <Text type="navItemLink">This is an article</Text>
+                    <StyledArrowRightIcon type="withBackground" />
+                  </NavigationLinkTextIconWrapper>
+                </ContentItemCard>
+              </NavigationMenuLink>
+              <NavigationMenuLink href="#">
+                <ContentItemCard>
+                  <ContentItemImage color="blue" />
+                  <NavigationLinkTextIconWrapper>
+                    <Text type="navItemLink">Here is another one</Text>
+                    <StyledArrowRightIcon type="withBackground" />
+                  </NavigationLinkTextIconWrapper>
+                </ContentItemCard>
+              </NavigationMenuLink>
+              <NavigationMenuLink href="#">
+                <ContentItemCard>
+                  <ContentItemImage color="blue" />
+                  <NavigationLinkTextIconWrapper>
+                    <Text type="navItemLink">One more article</Text>
+                    <StyledArrowRightIcon type="withBackground" />
+                  </NavigationLinkTextIconWrapper>
+                </ContentItemCard>
+              </NavigationMenuLink>
+              <NavigationMenuLink href="#">
+                <ContentItemCard>
+                  <ContentItemImage color="blue" />
+                  <NavigationLinkTextIconWrapper>
+                    <Text type="navItemLink">How to write article</Text>
+                    <StyledArrowRightIcon type="withBackground" />
+                  </NavigationLinkTextIconWrapper>
+                </ContentItemCard>
+              </NavigationMenuLink>
+              <NavigationMenuLink href="#">
+                <ContentItemCard>
+                  <ContentItemImage color="blue" />
+                  <NavigationLinkTextIconWrapper>
+                    <Text type="navItemLink">The final article here</Text>
+                    <StyledArrowRightIcon type="withBackground" />
+                  </NavigationLinkTextIconWrapper>
+                </ContentItemCard>
+              </NavigationMenuLink>
             </ContentList>
 
             <ContentList type="otherContent">
@@ -259,3 +292,5 @@ const Navigation = () => {
 }
 
 export default Navigation
+
+// fix icon size
