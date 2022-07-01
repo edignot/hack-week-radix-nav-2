@@ -30,6 +30,33 @@ const NavList = styled(NavigationMenu.List, {
   backgroundColor: gray.gray1,
 })
 
+const Logo = () => {
+  return (
+    <NavigationMenu.Link
+      href="#"
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: 10,
+        cursor: 'pointer',
+      }}
+    >
+      <div
+        style={{
+          width: 35,
+          height: 35,
+          borderRadius: 50,
+          backgroundImage:
+            'linear-gradient(330deg, hsl(272,53%,50%) 0%, hsl(226,68%,56%) 100%)',
+        }}
+      ></div>
+      <Title size="medium" as="h1">
+        hackweek
+      </Title>
+    </NavigationMenu.Link>
+  )
+}
+
 const TopNavLink = styled(NavigationMenu, {
   display: 'flex',
   position: 'relative',
@@ -281,7 +308,7 @@ const Navigation = () => {
       onValueChange={setValue}
     >
       <NavList>
-        <h1>Hi</h1>
+        <Logo />
         <NavItems>
           <NavItem title="Articles" value="articles">
             <NavContentSection>
