@@ -32,7 +32,7 @@ const NavList = styled(NavigationMenu.List, {
 
 const NavItemContainer = ({ value, title, children }) => {
   return (
-    <NavItem value={value}>
+    <NavigationMenu.Item value={value}>
       <NavTrigger
         onPointerMove={(event) => event.preventDefault()}
         onPointerLeave={(event) => event.preventDefault()}
@@ -46,11 +46,9 @@ const NavItemContainer = ({ value, title, children }) => {
       >
         {children}
       </NavContent>
-    </NavItem>
+    </NavigationMenu.Item>
   )
 }
-
-const NavItem = styled(NavigationMenu.Item, {})
 
 const NavTrigger = styled(NavigationMenu.Trigger, {
   display: 'flex',
@@ -107,14 +105,11 @@ const ArrowIcon = styled(ArrowRightIcon, {
 const NavContent = styled(NavigationMenu.Content, {
   borderTop: `1px solid ${gray.gray5}`,
   width: '100%',
-  gap: 100,
-  padding: 50,
   display: 'grid',
-  gridTemplate: 'auto / 1fr',
+  gridTemplate: 'auto / 1fr 1fr 1fr',
+  padding: 50,
   justifyItems: 'center',
-  '@media (min-width: 1200px)': {
-    gridTemplate: 'auto / 1fr 1fr 1fr',
-  },
+  gap: 100,
 })
 
 const NavContentSection = styled('div', {
@@ -163,10 +158,7 @@ const NavLink = styled(NavigationMenu.Link, {
 const CardContainer = styled('div', {
   display: 'grid',
   gap: 25,
-  gridTemplateColumns: 'repeat(2, 1fr)',
-  '@media (min-width: 768px)': {
-    gridTemplateColumns: 'repeat(3, 1fr)',
-  },
+  gridTemplateColumns: 'repeat(3, 1fr)',
 })
 
 const Card = ({ children }) => {
@@ -177,7 +169,7 @@ const Card = ({ children }) => {
           style={{
             zIndex: 1,
             position: 'relative',
-            width: '100%',
+            width: 150,
             height: 90,
             borderRadius: 10,
             backgroundImage:
@@ -220,7 +212,6 @@ const CardImage = styled('div', {
 })
 
 const CardLink = styled(NavigationMenu.Link, {
-  display: 'block',
   [`&:hover ${CardImage}::after`]: {
     transform: 'translateX(-10px)',
   },
