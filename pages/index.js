@@ -23,14 +23,35 @@ const NavRoot = styled(NavigationMenu.Root, {
 
 const NavList = styled(NavigationMenu.List, {
   display: 'flex',
-  justifyContent: 'center',
+  justifyContent: 'space-evenly',
   width: '100%',
   margin: 0,
   listStyle: 'none',
   backgroundColor: gray.gray1,
 })
 
-const NavItemContainer = ({ value, title, children }) => {
+const TopNavLink = styled(NavigationMenu, {
+  display: 'flex',
+  position: 'relative',
+  padding: 15,
+  margin: 15,
+  cursor: 'pointer',
+  fontSize: '1.2rem',
+  color: gray.gray12,
+  '&:hover': {
+    color: gray.gray11,
+  },
+})
+
+const NavItems = styled('div', {
+  display: 'flex',
+  justifyContent: 'center',
+  width: '100%',
+  margin: 0,
+  listStyle: 'none',
+})
+
+const NavItem = ({ value, title, children }) => {
   return (
     <NavigationMenu.Item value={value}>
       <NavTrigger
@@ -103,7 +124,7 @@ const ArrowIcon = styled(ArrowRightIcon, {
 })
 
 const NavContent = styled(NavigationMenu.Content, {
-  borderTop: `1px solid ${gray.gray5}`,
+  borderTop: `1px solid ${gray.gray7}`,
   width: '100%',
   display: 'grid',
   gridTemplate: 'auto / 1fr 1fr 1fr',
@@ -153,6 +174,9 @@ const NavLink = styled(NavigationMenu.Link, {
   fontSize: '1rem',
   fontWeight: 500,
   textDecoration: 'underline',
+  '&:hover': {
+    color: gray.gray11,
+  },
 })
 
 const CardContainer = styled('div', {
@@ -257,161 +281,167 @@ const Navigation = () => {
       onValueChange={setValue}
     >
       <NavList>
-        <NavItemContainer title="Articles" value="articles">
-          <NavContentSection>
-            <Title size="large" as="h2">
-              Articles
-            </Title>
-            <Text>
-              Here you can find <span>all articles</span>
-            </Text>
-            <NavLink href="#">
-              View All
-              <ArrowIcon type="plain" />
-            </NavLink>
-          </NavContentSection>
+        <h1>Hi</h1>
+        <NavItems>
+          <NavItem title="Articles" value="articles">
+            <NavContentSection>
+              <Title size="large" as="h2">
+                Articles
+              </Title>
+              <Text>
+                Here you can find <span>all articles</span>
+              </Text>
+              <NavLink href="#">
+                View All
+                <ArrowIcon type="plain" />
+              </NavLink>
+            </NavContentSection>
 
-          <NavContentSection>
-            <Title size="medium" as="h3">
-              Top Articles
-            </Title>
-            <CardContainer>
-              <Card>What is an article</Card>
-              <Card>How to write a good article</Card>
-              <Card>Article 101</Card>
-              <Card>How to read an article</Card>
-              <Card>Interesting article</Card>
-            </CardContainer>
-          </NavContentSection>
+            <NavContentSection>
+              <Title size="medium" as="h3">
+                Top Articles
+              </Title>
+              <CardContainer>
+                <Card>What is an article</Card>
+                <Card>How to write a good article</Card>
+                <Card>Article 101</Card>
+                <Card>How to read an article</Card>
+                <Card>Interesting article</Card>
+              </CardContainer>
+            </NavContentSection>
 
-          <NavContentSection>
-            <Title size="medium" as="h3">
-              Trending
-            </Title>
-            <NavLink href="#">Interesting article</NavLink>
-            <NavLink href="#">How to read an article</NavLink>
-            <NavLink href="#">Article 101</NavLink>
-            <NavLink href="#">How to write a good article</NavLink>
-            <NavLink href="#">What is an article</NavLink>
-          </NavContentSection>
-        </NavItemContainer>
+            <NavContentSection>
+              <Title size="medium" as="h3">
+                Trending
+              </Title>
+              <NavLink href="#">Interesting article</NavLink>
+              <NavLink href="#">How to read an article</NavLink>
+              <NavLink href="#">Article 101</NavLink>
+              <NavLink href="#">How to write a good article</NavLink>
+              <NavLink href="#">What is an article</NavLink>
+            </NavContentSection>
+          </NavItem>
 
-        <NavItemContainer value="resources" title="Resources">
-          <NavContentSection>
-            <Title size="large" as="h2">
-              Resources
-            </Title>
-            <Text>
-              We list all<span>resources here</span>
-            </Text>
-            <NavLink href="#">
-              View All
-              <ArrowIcon type="plain" />
-            </NavLink>
-          </NavContentSection>
+          <NavItem value="resources" title="Resources">
+            <NavContentSection>
+              <Title size="large" as="h2">
+                Resources
+              </Title>
+              <Text>
+                We list all<span>resources here</span>
+              </Text>
+              <NavLink href="#">
+                View All
+                <ArrowIcon type="plain" />
+              </NavLink>
+            </NavContentSection>
 
-          <NavContentSection>
-            <Title size="medium" as="h3">
-              Top Resources
-            </Title>
-            <CardContainer>
-              <Card>The best resource</Card>
-              <Card>List of great resources</Card>
-              <Card>Check out this resource</Card>
-              <Card>Resource 101</Card>
-              <Card>Another resource</Card>
-            </CardContainer>
-          </NavContentSection>
+            <NavContentSection>
+              <Title size="medium" as="h3">
+                Top Resources
+              </Title>
+              <CardContainer>
+                <Card>The best resource</Card>
+                <Card>List of great resources</Card>
+                <Card>Check out this resource</Card>
+                <Card>Resource 101</Card>
+                <Card>Another resource</Card>
+              </CardContainer>
+            </NavContentSection>
 
-          <NavContentSection>
-            <Title size="medium" as="h3">
-              Trending
-            </Title>
-            <NavLink href="#">Another resource</NavLink>
-            <NavLink href="#">Resource 101</NavLink>
-            <NavLink href="#">Check out this resource</NavLink>
-            <NavLink href="#">List of great resources</NavLink>
-            <NavLink href="#">The best resource</NavLink>
-          </NavContentSection>
-        </NavItemContainer>
+            <NavContentSection>
+              <Title size="medium" as="h3">
+                Trending
+              </Title>
+              <NavLink href="#">Another resource</NavLink>
+              <NavLink href="#">Resource 101</NavLink>
+              <NavLink href="#">Check out this resource</NavLink>
+              <NavLink href="#">List of great resources</NavLink>
+              <NavLink href="#">The best resource</NavLink>
+            </NavContentSection>
+          </NavItem>
 
-        <NavItemContainer value="products" title="Products">
-          <NavContentSection>
-            <Title size="large" as="h2">
-              Products
-            </Title>
-            <Text>
-              Here you can find <span>all products</span>
-            </Text>
-            <NavLink href="#">
-              View All
-              <ArrowIcon type="plain" />
-            </NavLink>
-          </NavContentSection>
+          <NavItem value="products" title="Products">
+            <NavContentSection>
+              <Title size="large" as="h2">
+                Products
+              </Title>
+              <Text>
+                Here you can find <span>all products</span>
+              </Text>
+              <NavLink href="#">
+                View All
+                <ArrowIcon type="plain" />
+              </NavLink>
+            </NavContentSection>
 
-          <NavContentSection>
-            <Title size="medium" as="h3">
-              Top Products
-            </Title>
-            <CardContainer>
-              <Card>Our top product</Card>
-              <Card>How to create a product</Card>
-              <Card>Creating product 101</Card>
-              <Card>The best product</Card>
-              <Card>Check out this product</Card>
-            </CardContainer>
-          </NavContentSection>
+            <NavContentSection>
+              <Title size="medium" as="h3">
+                Top Products
+              </Title>
+              <CardContainer>
+                <Card>Our top product</Card>
+                <Card>How to create a product</Card>
+                <Card>Creating product 101</Card>
+                <Card>The best product</Card>
+                <Card>Check out this product</Card>
+              </CardContainer>
+            </NavContentSection>
 
-          <NavContentSection>
-            <Title size="medium" as="h3">
-              Trending
-            </Title>
-            <NavLink href="#">Check out this product</NavLink>
-            <NavLink href="#">The best product</NavLink>
-            <NavLink href="#">Creating product 101</NavLink>
-            <NavLink href="#">How to create a product</NavLink>
-            <NavLink href="#">Our top product</NavLink>
-          </NavContentSection>
-        </NavItemContainer>
+            <NavContentSection>
+              <Title size="medium" as="h3">
+                Trending
+              </Title>
+              <NavLink href="#">Check out this product</NavLink>
+              <NavLink href="#">The best product</NavLink>
+              <NavLink href="#">Creating product 101</NavLink>
+              <NavLink href="#">How to create a product</NavLink>
+              <NavLink href="#">Our top product</NavLink>
+            </NavContentSection>
+          </NavItem>
 
-        <NavItemContainer value="tutorials" title="Tutorials">
-          <NavContentSection>
-            <Title size="large" as="h2">
-              Tutorials
-            </Title>
-            <Text>
-              Here you can find <span>all tutorials</span>
-            </Text>
-            <NavLink href="#">
-              View All
-              <ArrowIcon type="plain" />
-            </NavLink>
-          </NavContentSection>
+          <NavItem value="tutorials" title="Tutorials">
+            <NavContentSection>
+              <Title size="large" as="h2">
+                Tutorials
+              </Title>
+              <Text>
+                Here you can find <span>all tutorials</span>
+              </Text>
+              <NavLink href="#">
+                View All
+                <ArrowIcon type="plain" />
+              </NavLink>
+            </NavContentSection>
 
-          <NavContentSection>
-            <Title size="medium" as="h3">
-              Top Tutorials
-            </Title>
-            <CardContainer>
-              <Card>How to write a good story</Card>
-              <Card>How to create a tutorial</Card>
-              <Card>Learn how to write stories</Card>
-              <Card>How to create a product</Card>
-              <Card>Building a website 101</Card>
-            </CardContainer>
-          </NavContentSection>
+            <NavContentSection>
+              <Title size="medium" as="h3">
+                Top Tutorials
+              </Title>
+              <CardContainer>
+                <Card>How to write a good story</Card>
+                <Card>How to create a tutorial</Card>
+                <Card>Learn how to write stories</Card>
+                <Card>How to create a product</Card>
+                <Card>Building a website 101</Card>
+              </CardContainer>
+            </NavContentSection>
 
-          <NavContentSection>
-            <Title size="medium" as="h3">
-              Trending
-            </Title>
-            <NavLink href="#">Building a website 101</NavLink>
-            <NavLink href="#">How to create a product</NavLink>
-            <NavLink href="#">Learn how to write stories</NavLink>
-            <NavLink href="#">How to create a tutorial</NavLink>
-            <NavLink href="#">How to write a good story</NavLink>
-          </NavContentSection>
-        </NavItemContainer>
+            <NavContentSection>
+              <Title size="medium" as="h3">
+                Trending
+              </Title>
+              <NavLink href="#">Building a website 101</NavLink>
+              <NavLink href="#">How to create a product</NavLink>
+              <NavLink href="#">Learn how to write stories</NavLink>
+              <NavLink href="#">How to create a tutorial</NavLink>
+              <NavLink href="#">How to write a good story</NavLink>
+            </NavContentSection>
+          </NavItem>
+        </NavItems>
+        <TopNavLink href="#">About</TopNavLink>
+        <TopNavLink href="#">Help</TopNavLink>
+        <TopNavLink href="#">Login</TopNavLink>
       </NavList>
       <NavViewport />
     </NavRoot>
